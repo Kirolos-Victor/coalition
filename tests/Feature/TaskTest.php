@@ -51,7 +51,7 @@ class TaskTest extends TestCase
             ->assertSee('Updated Task');
     }
 
-    public function test_delete_task()
+    public function test_delete_task_response()
     {
         $task = Task::where('name', 'Updated Task')->first();
         $response = $this->delete('tasks/' . $task->id);
@@ -66,4 +66,27 @@ class TaskTest extends TestCase
         $response->assertSessionHasErrors('name');
     }
 
+    public function test_project_id_is_required_in_the_store_method()
+    {
+        $response = $this->post('/tasks', [
+            'project_id' => '',
+        ]);
+        $response->assertSessionHasErrors('project_id');
+    }
+
+    public function test_name_is_required_in_the_update_method()
+    {
+        $response = $this->put('/tasks/1', [
+            'name' => '',
+        ]);
+        $response->assertSessionHasErrors('name');
+    }
+
+    public function test_project_id_is_required_in_the_update_method()
+    {
+        $response = $this->put('/tasks/1', [
+            'project_id' => '',
+        ]);
+        $response->assertSessionHasErrors('project_id');
+    }
 }

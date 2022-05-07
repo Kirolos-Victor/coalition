@@ -30,7 +30,7 @@ Copy .env.example file to .env and edit credentials
 
 > Visit **/tasks** to start using the application.
 >
-> Note: you need to create a project first using **/projects** URL before creating any tasks.
+> Note: you need to create a project first by going to **/projects/create** before creating any tasks.
 
 
 
