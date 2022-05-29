@@ -1,8 +1,8 @@
 ## How to Use
 
-### Extract The File
+### Clone the repository
 
-Copy .env.example file to .env and edit credentials
+> git clone **https://github.com/Kirolos-Victor/TestWork-003-.git**
 
 ### Install Via Composer
 
@@ -12,25 +12,25 @@ Copy .env.example file to .env and edit credentials
 
 > php artisan key:generate
 
-### Install Dependencies
-
-> npm install
->
-> npm run dev
-
 ### Run the database migrations (Set the database connection in .env before migrating)
 
-> **php artisan migrate --seed** , I have added two seeders for testing purpose please do not forget to use --seed
+> **php artisan migrate**
 
 ### Testing
 
-> run **php artisan test**
+> I have created test cases for all the endpoints.
+
+> run **php artisan test** 
 
 ### Task
 
-> Visit **/tasks** to start using the application.
+> Visit **https://www.getpostman.com/collections/79cbc2faaf60a2025845** to get the Postman collection.
 >
-> Note: you need to create a project first by going to **/projects/create** before creating any tasks.
+> Simple authentication is created as requested without using any packages.
+>
+> Register your account through **/api/register** and copy the API_TOKEN then use it as bearer token type
+>
+> To renew the API_TOKEN visit **/api/login**
 
 
 

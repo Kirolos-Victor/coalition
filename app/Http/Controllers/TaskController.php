@@ -52,7 +52,7 @@ class TaskController extends Controller
     public function destroy(Task $task)
     {
         $task->delete();
-        return response()->json(['message'=>'deleted'], 200);
+        return response()->json(['message' => 'deleted'], 200);
     }
 
     public function updatePriority(Request $request, TaskService $service)
