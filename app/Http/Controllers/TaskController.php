@@ -19,14 +19,14 @@ class TaskController extends Controller
 
     public function create(Request $request)
     {
-        $projects = Project::all();
+        $projects = Project::all('id', 'name');
         $projectId = $request->project_id;
         return view('tasks.create', compact('projects', 'projectId'));
     }
 
     public function store(StoreTaskRequest $request)
     {
-        Task::create($request->all());
+        Task::create($request->validated());
         return redirect()->route('tasks.index', ['project_id' => $request->main_project_id])->with(
             'message',
             'created successfully'
@@ -35,14 +35,14 @@ class TaskController extends Controller
 
     public function edit(Request $request, Task $task)
     {
-        $projects = Project::all();
+        $projects = Project::all('id', 'name');
         $projectId = $request->project_id;
         return view('tasks.edit', compact('task', 'projects', 'projectId'));
     }
 
     public function update(UpdateTaskRequest $request, Task $task)
     {
-        $task->update($request->all());
+        $task->update($request->validated());
         return redirect()->route('tasks.index', ['project_id' => $request->main_project_id])->with(
             'message',
             'updated successfully'
